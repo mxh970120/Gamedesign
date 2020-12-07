@@ -36,10 +36,14 @@ hangManPics = [''' +---+
                   / \  |
                       ===''']
 
+words = {'Colors': ['rea', 'orange', 'yellow', 'green', 'blue', 'violet', 'black', 'white', 'brown', 'pink'],
+         'Shapes': ['square', 'triangle', 'rectangle', 'circle', 'ellipse', 'hexagon'],
+         'Fruits': ['apple', 'orange', 'lemon', 'lime', 'pear', 'watermelon', 'cherry', 'banana', 'mango']}
 
 def getRandomWord(wordlist):
-    wordIndex = random.randint(0, len(wordlist)-1)
-    return wordlist[wordIndex]
+    wordkey = random.choice(list(words.keys()))
+    wordIndex = random.randint(0, len(words[wordkey])-1)
+    return wordlist[wordkey][wordIndex], wordkey
 
 def displayBoard(missedLetters, correctLetters, secretWord):
     print(hangManPics[len(missedLetters)])
@@ -81,16 +85,15 @@ def playAgain():
     return input().lower().startswith('y')
 
 if __name__ == "__main__":
-    words = ['ambivert', 'calcspar', 'deaness', 'entrete', 'gades', 'monkeydom', 'outclimbed', 'outdared', 'pistoleers', 'redbugs', 'snake-line', 'subrules', 'subtrends', 'torenia', 'unhides']
-    print(words)
     print('H A N G M A N')
     missedLetters = ''
     correctLetters = ''
-    secretWord = getRandomWord(words)
+    secretWord, wordKey = getRandomWord(words)
     gameIsDone = False
 
     while True:
         displayBoard(missedLetters, correctLetters, secretWord)
+        print('Note: ' + wordKey)
 
         guess = getGuess(missedLetters + correctLetters)
 

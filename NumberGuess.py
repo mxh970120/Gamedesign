@@ -1,3 +1,8 @@
+'''
+game name: number guess
+author: mxh970120
+'''
+
 import random
 
 numberOfGuess = 0

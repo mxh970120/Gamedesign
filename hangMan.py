@@ -1,3 +1,8 @@
+'''
+game name: hangman
+author: mxh970120
+'''
+
 import random
 
 hangManPics = [''' +---+

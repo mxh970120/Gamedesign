@@ -1,5 +1,8 @@
 # -*- coding:UTF-8 -*-
-# ! /usr/bin/python
+
+'''
+example: https://blog.csdn.net/taiyang1987912/article/details/45392791
+'''
 
 import random
 import sys
